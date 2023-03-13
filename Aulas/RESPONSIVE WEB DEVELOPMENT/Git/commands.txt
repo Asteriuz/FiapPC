@@ -1,0 +1,6 @@
+Comandos básicos do GIT!
+"git init" - Inicia o repositório
+"git add ." - Adiciona todos os arquivos
+"git commit . -m "mensagem" - Commit todos os arquivos
+"git status" - vê os status
+"git log --oneline" - vê os logs
