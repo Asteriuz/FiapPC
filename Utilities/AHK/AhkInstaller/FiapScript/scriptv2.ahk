@@ -138,15 +138,23 @@ teste := 1
     if (WinActive("ahk_class CabinetWClass")) {
         explorerpath := ControlGetText("ToolbarWindow323", "ahk_exe explorer.exe", "Address:")
         explorerpath := StrReplace(explorerpath, "Address: ", "")
-        Sleep(150)
-        run("lib\wt.lnk -d " . explorerpath, , , &varpid)
-        KeyWait("enter")
+        if !InStr(explorerpath, "\") {
+            Sleep(150)
+            run("lib\wt.lnk -d C:\Users\logonrmlocal\" . explorerpath, , , &varpid)
+            KeyWait("enter")
+        }
+        else {
+            Sleep(150)
+            run("lib\wt.lnk -d " . explorerpath, , , &varpid)
+            KeyWait("enter")
+        }
     } else {
         Sleep(150)
         run("lib\wt.lnk", , , &varpid)
         KeyWait("enter")
     }
 }
+
 
 
 #HotIf WinActive("ahk_exe explorer.exe")
